@@ -1,6 +1,6 @@
 FROM openfaas/of-watchdog:0.7.7 as watchdog
 FROM golang:1.13-alpine3.11 as build
-
+RUN echo -e "http://nl.alpinelinux.org/alpine/v3.5/main\nhttp://nl.alpinelinux.org/alpine/v3.5/community" > /etc/apk/repositories
 RUN apk --no-cache add git
 
 ENV CGO_ENABLED=0
