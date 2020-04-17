@@ -24,6 +24,7 @@ RUN go build --ldflags "-s -w" -a -installsuffix cgo -o handler .
 RUN go test handler/function/... -cover
 
 FROM alpine:3.11
+RUN echo -e "http://nl.alpinelinux.org/alpine/v3.5/main\nhttp://nl.alpinelinux.org/alpine/v3.5/community" > /etc/apk/repositories
 RUN apk --no-cache add git
 # Add non root user and certs
 RUN apk --no-cache add ca-certificates \
